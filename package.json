@@ -1,0 +1,26 @@
+{
+  "name": "vuex-shortly",
+  "version": "0.1.0",
+  "description": "Shortly Vuex's store methods.",
+  "main": "index.js",
+  "module": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VitorLuizC/vuex-shortly.git"
+  },
+  "keywords": [
+    "vue",
+    "vuex",
+    "vuex-shortly",
+    "DRY"
+  ],
+  "author": "Vitor Cavalcanti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VitorLuizC/vuex-shortly/issues"
+  },
+  "homepage": "https://github.com/VitorLuizC/vuex-shortly#README"
+}
