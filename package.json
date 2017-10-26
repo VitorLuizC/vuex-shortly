@@ -1,11 +1,13 @@
 {
   "name": "vuex-shortly",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shortly Vuex's store methods.",
-  "main": "index.js",
+  "main": "dist/vuex-shortly.common.js",
   "module": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "bili index.js -o dist --format cjs --format umd --compress umd",
+    "prepare": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -22,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/VitorLuizC/vuex-shortly/issues"
   },
-  "homepage": "https://github.com/VitorLuizC/vuex-shortly#README"
+  "homepage": "https://github.com/VitorLuizC/vuex-shortly#README",
+  "devDependencies": {
+    "bili": "^0.18.2"
+  }
 }
