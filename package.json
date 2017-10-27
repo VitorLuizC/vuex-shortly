@@ -1,9 +1,8 @@
 {
   "name": "vuex-shortly",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Shortly Vuex's store methods.",
   "main": "dist/vuex-shortly.common.js",
-  "module": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "bili index.js -o dist --format cjs --format umd --compress umd",
