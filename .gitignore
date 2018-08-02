@@ -1,10 +1,9 @@
 # Node.js modules
 node_modules/
 
-# Lock files
-# Because libs don't need it
+# NPM's Lockfile
+# Since I'm using Yarn and it has it's own lockfile, there's no need for such.
 package-lock.json
-yarn.lock
 
-# Generated sources.
+# Generated sources
 dist/

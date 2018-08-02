@@ -1,32 +1,30 @@
-const shortlyMethods = (λ) => (methods = {}) => {
-  const types = Object.keys(methods)
-  const shortly = types.reduce((shortly, method) => {
-    const handler = methods[method]
-    shortly[method] = typeof handler === 'function' ? handler : λ(handler)
-    return shortly
-  }, Object.create(null))
-  return shortly
-}
+import reconstruct from 'reconstruct'
+import set from 'set-value'
+import take from 'object-take'
+import assign from 'object-assign'
 
-export const shortlyGetters = shortlyMethods((property) => {
-  return (state) => state[property]
-})
+const resolve = (value, placeholder) => typeof value === 'function' ? value : placeholder;
 
-export const shortlyMutations = shortlyMethods((property) => {
-  return (state, payload) => {
-    state[property] = payload
-  }
-})
-
-export const shortlyActions = shortlyMethods((type) => {
-  return ({ commit }, payload) => commit(type, payload)
-})
-
-export default (store = {}) => {
-  const shortly = Object.assign({}, store, {
-    getters: shortlyGetters(store.getters),
-    mutations: shortlyMutations(store.mutations),
-    actions: shortlyActions(store.actions)
+export const shortlyGetters = (getters = {}) =>
+  reconstruct(getters, (property, action) => ({
+    [action]: resolve(property, (state) => take(state, property))
   })
-  return shortly
-}
+)
+
+export const shortlyMutations = (mutations = {}) => reconstruct(mutations,
+  (property, action) => ({
+    [action]: resolve(property, (state, payload) => set(state, property, payload))
+  })
+)
+
+export const shortlyActions = (actions = {}) => reconstruct(actions,
+  (property, action) => ({
+    [action]: resolve(property, ({ commit }, payload) => commit(property, payload))
+  })
+)
+
+export default (store = {}) => assign({}, store, {
+  actions: shortlyActions(store.actions),
+  getters: shortlyGetters(store.getters),
+  mutations: shortlyMutations(store.mutations),
+})

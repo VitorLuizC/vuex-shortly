@@ -2,7 +2,9 @@
   "name": "vuex-shortly",
   "version": "0.1.2",
   "description": "Shortly Vuex's store methods.",
-  "main": "dist/vuex-shortly.common.js",
+  "main": "dist/vuex-shortly.cjs.js",
+  "module": "dist/vuex-shortly.es.js",
+  "browser": "dist/vuex-shortly.js",
   "files": [
     "dist/",
     "LICENSE",
@@ -10,7 +12,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "bili index.js -o dist --format cjs --format umd --compress umd",
+    "build": "bili index.js --format es,cjs,umd --module-name VuexShortly --exports named --js buble --banner",
     "prepare": "npm run build"
   },
   "repository": {
@@ -34,6 +36,12 @@
   },
   "homepage": "https://github.com/VitorLuizC/vuex-shortly#README",
   "devDependencies": {
-    "bili": "^0.18.2"
+    "bili": "^3.1.2"
+  },
+  "dependencies": {
+    "object-assign": "^4.1.1",
+    "object-take": "^0.1.2",
+    "reconstruct": "^0.2.1",
+    "set-value": "^3.0.0"
   }
 }
