@@ -5,3 +5,6 @@ node_modules/
 # Because libs don't need it
 package-lock.json
 yarn.lock
+
+# Generated sources.
+dist/
