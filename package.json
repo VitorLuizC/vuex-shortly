@@ -23,7 +23,11 @@
     "vuex-shortly",
     "DRY"
   ],
-  "author": "Vitor Cavalcanti",
+  "author": {
+    "url": "https://vitorluizc.github.io/",
+    "name": "Vitor Luiz Cavalcanti",
+    "email": "vitorluizc@outlook.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/VitorLuizC/vuex-shortly/issues"
